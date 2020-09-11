@@ -1,6 +1,7 @@
 import 'package:GriderApiFetching/src/blocs/stories_bloc.dart';
 import 'package:GriderApiFetching/src/models/item_model.dart';
 import 'package:GriderApiFetching/src/widgets/news_list_tile.dart';
+import 'package:GriderApiFetching/src/widgets/refresh.dart';
 import 'package:flutter/material.dart';
 
 import '../blocs/stories_provider.dart';
@@ -16,12 +17,14 @@ class NewsList extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                bloc.fetchItem(snapshot.data[index]);
-                return NewsListTile(id: snapshot.data[index]);
-              },
-              itemCount: snapshot.data.length,
+            return Refresh(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  bloc.fetchItem(snapshot.data[index]);
+                  return NewsListTile(id: snapshot.data[index]);
+                },
+                itemCount: snapshot.data.length,
+              ),
             );
           }
         });

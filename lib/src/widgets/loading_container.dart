@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LoadingContainer extends StatelessWidget {
-  renderPlaceholderBox() {
+  Widget renderPlaceholderBox() {
     return Container(
-      color: Colors.grey,
+      color: Colors.grey[200],
       width: 120,
       height: 15,
     );
@@ -16,7 +16,7 @@ class LoadingContainer extends StatelessWidget {
           title: renderPlaceholderBox(),
           subtitle: renderPlaceholderBox(),
         ),
-        Divider(height: 2, color: Colors.grey)
+        Divider(height: 2, color: Colors.grey[200])
       ],
     );
   }
